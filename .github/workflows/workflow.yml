@@ -28,4 +28,4 @@ jobs:
     needs: check-for-updates
     steps:
     - run: echo 'hello world'
-    - run: echo "updatesAvailable = ${{ steps.update_step.outputs.updates }}"
+    - run: echo "updatesAvailable = ${{ needs.check-for-updates.steps.update_step.outputs.updates }}"
