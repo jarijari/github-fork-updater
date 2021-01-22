@@ -20,10 +20,12 @@ jobs:
     # call the script and store the result
     #- run: updatesAvailable=$((pwsh -Command "& { .\updater.ps1 }") | tail -1) 
 
-    - run: echo "are there any updates available? $updatesAvailable"
+    - run: Write-Host "are there any updates available? $updatesAvailable"
+      shell: pwsh
 
     - id: update_step
       run: echo "::set-output name=updatesAvailable::$updatesAvailable"
+      shell: pwsh
 
   run-update:
     runs-on: ubuntu-latest
