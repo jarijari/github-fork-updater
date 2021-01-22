@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       update: ${{steps.check-for-updates.update_step.updatesAvailable}}
+      test: "123"
 
     steps:
     - uses: actions/checkout@v1
@@ -28,6 +29,7 @@ jobs:
     needs: check-for-updates
     #if: ${{ needs.check-for-updates.steps.update_step.outputs.updates }}" == "False"
     steps:
-    - run: echo 'hello world'
-    - run: echo "updatesAvailable = [${{ needs.check-for-updates.outputs.update }}]"
-    - run: echo "updatesAvailable = [${{ steps.update_step.outputs.update }}]"
+    - run: echo "updatesAvailable1 = [${{ needs.check-for-updates.outputs.update }}]"
+    - run: echo "updatesAvailable2 = [${{ steps.update_step.outputs.update }}]"
+    - run: echo "test1 = [${{ needs.check-for-updates.outputs.test }}]"
+    - run: echo "test2 = [${{ steps.update_step.outputs.test }}]"
