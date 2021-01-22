@@ -29,4 +29,4 @@ jobs:
     #if: ${{ needs.check-for-updates.steps.update_step.outputs.updates }}" == "False"
     steps:
     - run: echo 'hello world'
-    - run: echo "updatesAvailable = [${{ needs.check-for-updates.steps.update_step.outputs.updates }}]"
+    - run: echo "updatesAvailable = [${{ needs.check-for-updates.outputs.update }}]"
