@@ -27,7 +27,7 @@ jobs:
   run-update:
     runs-on: ubuntu-latest
     needs: check-for-updates
-    if: ${{ needs.check-for-updates.outputs.update == "False" }} 
+    if: ${{ needs.check-for-updates.outputs.update == 'False' }} 
     steps:
     - run: echo "updatesAvailable2 = [${{ needs.check-for-updates.outputs.update }}]"
     - run: echo "test = [${{ needs.check-for-updates.outputs.test }}]"
