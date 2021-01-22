@@ -19,9 +19,9 @@ jobs:
       run: | 
         $updatesAvailable = .\updater.ps1
         Write-Host "are there any updates available? [$updatesAvailable]"
-        echo "::set-output name=updates::$updatesAvailable"
+        echo "::set-output name=update::$updatesAvailable"
 
-    - run: echo "updatesAvailable = [${{ steps.update_step.outputs.updates }}]"
+    - run: echo "updatesAvailable = [${{ steps.update_step.outputs.update }}]"
 
   run-update:
     runs-on: ubuntu-latest
@@ -30,3 +30,4 @@ jobs:
     steps:
     - run: echo 'hello world'
     - run: echo "updatesAvailable = [${{ needs.check-for-updates.outputs.update }}]"
+    - run: echo "updatesAvailable = [${{ steps.update_step.outputs.update }}]"
