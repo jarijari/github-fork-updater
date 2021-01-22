@@ -8,7 +8,7 @@ jobs:
   check-for-updates:
     runs-on: ubuntu-latest
     outputs:
-      update: ${{steps.update_step.updatesAvailable}}
+      update: ${{steps.update_step.update}}
       test: "123"
 
     steps:
