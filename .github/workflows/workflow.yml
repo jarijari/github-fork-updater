@@ -11,7 +11,7 @@ jobs:
       update: ${{steps.update_step.outputs.update}}
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     - id: update_step
       shell: pwsh
@@ -28,6 +28,8 @@ jobs:
     environment: UpdateTheFork
     if: ${{ needs.check-for-updates.outputs.update == 'True' }} 
     steps:
+    - uses: actions/checkout@v2
+    
     - run: echo "There are updates available and we need to update the fork"
     
     - uses: JasonEtco/create-an-issue@v2
