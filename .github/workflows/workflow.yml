@@ -13,9 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - run: echo $((pwsh -Command "& { .\updater.ps1 }") | tail -1) 
-      shell: pwsh
+    #- run: echo $((pwsh -Command "& { .\updater.ps1 }") | tail -1) 
+     
     - run: $updatesAvailable = .\updater.ps1
+      shell: pwsh
     # call the script and store the result
     #- run: updatesAvailable=$((pwsh -Command "& { .\updater.ps1 }") | tail -1) 
 
