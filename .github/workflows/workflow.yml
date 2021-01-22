@@ -26,4 +26,4 @@ jobs:
     needs: check-for-updates
     steps:
     - run: echo 'hello world'
-    - run: echo "${{ jobs.check-for-updates.steps.update_step.outputs.updatesAvailable }}"
+    - run: echo "${{ steps.update_step.outputs.updatesAvailable }}"
