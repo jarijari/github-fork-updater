@@ -15,7 +15,10 @@ jobs:
 
     #- run: echo $((pwsh -Command "& { .\updater.ps1 }") | tail -1) 
      
-    - run: $updatesAvailable = .\updater.ps1
+    - run: | 
+        $updatesAvailable = .\updater.ps1
+        Write-Host "are there any updates available? $updatesAvailable"
+        echo "::set-output name=updatesAvailable::$updatesAvailable"
       shell: pwsh
     # call the script and store the result
     #- run: updatesAvailable=$((pwsh -Command "& { .\updater.ps1 }") | tail -1) 
